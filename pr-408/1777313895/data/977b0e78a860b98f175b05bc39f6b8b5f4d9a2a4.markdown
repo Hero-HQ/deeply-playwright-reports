@@ -1,0 +1,614 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: pr-408-sort-dropdown-ux.spec.ts >> PR-408 Sort — Dropdown UX, Accessibility & ARIA >> D.2 Clicking outside the dropdown closes it and preserves the current sort
+- Location: tests/pr-408-sort-dropdown-ux.spec.ts:36:7
+
+# Error details
+
+```
+Error: locator.click: Error: strict mode violation: locator('div.fixed.inset-0') resolved to 2 elements:
+    1) <div aria-hidden="true" class="fixed inset-0 bg-deep/30 z-40 md:hidden transition-opacity duration-300 opacity-0 pointer-events-none"></div> aka locator('div').nth(1)
+    2) <div class="fixed inset-0 z-10"></div> aka locator('.fixed.inset-0.z-10')
+
+Call log:
+  - waiting for locator('div.fixed.inset-0')
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e5]:
+        - link "Deeply" [ref=e6] [cursor=pointer]:
+          - /url: /dashboard
+          - img [ref=e7]
+          - generic [ref=e9]: Deeply
+        - button "Close sidebar" [ref=e10] [cursor=pointer]:
+          - img [ref=e11]
+      - navigation [ref=e13]:
+        - button "Home" [ref=e14] [cursor=pointer]:
+          - img [ref=e16]
+          - generic [ref=e19]: Home
+        - button "Issues" [ref=e20] [cursor=pointer]:
+          - img [ref=e22]
+          - generic [ref=e25]: Issues
+        - button "Commitments" [ref=e26] [cursor=pointer]:
+          - img [ref=e28]
+          - generic [ref=e31]: Commitments
+        - button "Chat" [ref=e32] [cursor=pointer]:
+          - img [ref=e34]
+          - generic [ref=e36]: Chat
+        - button "Reminders" [ref=e37] [cursor=pointer]:
+          - img [ref=e39]
+          - generic [ref=e42]: Reminders
+        - button "Profile" [ref=e43] [cursor=pointer]:
+          - img [ref=e45]
+          - generic [ref=e48]: Profile
+        - generic [ref=e49]:
+          - generic [ref=e50]: Recents
+          - generic [ref=e51]:
+            - button "Untitled" [ref=e52] [cursor=pointer]:
+              - generic "Untitled" [ref=e53]
+            - button "Conversation options" [ref=e54] [cursor=pointer]:
+              - img [ref=e55]
+          - generic [ref=e59]:
+            - button "Untitled" [ref=e60] [cursor=pointer]:
+              - generic "Untitled" [ref=e61]
+            - button "Conversation options" [ref=e62] [cursor=pointer]:
+              - img [ref=e63]
+          - generic [ref=e67]:
+            - button "Untitled" [ref=e68] [cursor=pointer]:
+              - generic "Untitled" [ref=e69]
+            - button "Conversation options" [ref=e70] [cursor=pointer]:
+              - img [ref=e71]
+          - generic [ref=e75]:
+            - button "Untitled" [ref=e76] [cursor=pointer]:
+              - generic "Untitled" [ref=e77]
+            - button "Conversation options" [ref=e78] [cursor=pointer]:
+              - img [ref=e79]
+          - generic [ref=e83]:
+            - button "Untitled" [ref=e84] [cursor=pointer]:
+              - generic "Untitled" [ref=e85]
+            - button "Conversation options" [ref=e86] [cursor=pointer]:
+              - img [ref=e87]
+          - generic [ref=e91]:
+            - button "Untitled" [ref=e92] [cursor=pointer]:
+              - generic "Untitled" [ref=e93]
+            - button "Conversation options" [ref=e94] [cursor=pointer]:
+              - img [ref=e95]
+          - generic [ref=e99]:
+            - button "Untitled" [ref=e100] [cursor=pointer]:
+              - generic "Untitled" [ref=e101]
+            - button "Conversation options" [ref=e102] [cursor=pointer]:
+              - img [ref=e103]
+          - generic [ref=e107]:
+            - button "Untitled" [ref=e108] [cursor=pointer]:
+              - generic "Untitled" [ref=e109]
+            - button "Conversation options" [ref=e110] [cursor=pointer]:
+              - img [ref=e111]
+          - generic [ref=e115]:
+            - button "Untitled" [ref=e116] [cursor=pointer]:
+              - generic "Untitled" [ref=e117]
+            - button "Conversation options" [ref=e118] [cursor=pointer]:
+              - img [ref=e119]
+          - generic [ref=e123]:
+            - button "Untitled" [ref=e124] [cursor=pointer]:
+              - generic "Untitled" [ref=e125]
+            - button "Conversation options" [ref=e126] [cursor=pointer]:
+              - img [ref=e127]
+          - generic [ref=e131]:
+            - button "Untitled" [ref=e132] [cursor=pointer]:
+              - generic "Untitled" [ref=e133]
+            - button "Conversation options" [ref=e134] [cursor=pointer]:
+              - img [ref=e135]
+          - generic [ref=e139]:
+            - button "Untitled" [ref=e140] [cursor=pointer]:
+              - generic "Untitled" [ref=e141]
+            - button "Conversation options" [ref=e142] [cursor=pointer]:
+              - img [ref=e143]
+          - generic [ref=e147]:
+            - button "Untitled" [ref=e148] [cursor=pointer]:
+              - generic "Untitled" [ref=e149]
+            - button "Conversation options" [ref=e150] [cursor=pointer]:
+              - img [ref=e151]
+          - generic [ref=e155]:
+            - button "Untitled" [ref=e156] [cursor=pointer]:
+              - generic "Untitled" [ref=e157]
+            - button "Conversation options" [ref=e158] [cursor=pointer]:
+              - img [ref=e159]
+          - generic [ref=e163]:
+            - button "Decision-making friction in …" [ref=e164] [cursor=pointer]:
+              - generic "Decision-making friction in our relationship" [ref=e165]: Decision-making friction in …
+            - button "Conversation options" [ref=e166] [cursor=pointer]:
+              - img [ref=e167]
+          - generic [ref=e171]:
+            - button "Untitled" [ref=e172] [cursor=pointer]:
+              - generic "Untitled" [ref=e173]
+            - button "Conversation options" [ref=e174] [cursor=pointer]:
+              - img [ref=e175]
+          - generic [ref=e179]:
+            - button "Untitled" [ref=e180] [cursor=pointer]:
+              - generic "Untitled" [ref=e181]
+            - button "Conversation options" [ref=e182] [cursor=pointer]:
+              - img [ref=e183]
+          - generic [ref=e187]:
+            - button "Untitled" [ref=e188] [cursor=pointer]:
+              - generic "Untitled" [ref=e189]
+            - button "Conversation options" [ref=e190] [cursor=pointer]:
+              - img [ref=e191]
+          - generic [ref=e195]:
+            - button "Untitled" [ref=e196] [cursor=pointer]:
+              - generic "Untitled" [ref=e197]
+            - button "Conversation options" [ref=e198] [cursor=pointer]:
+              - img [ref=e199]
+          - generic [ref=e203]:
+            - button "How we make decisions togeth…" [ref=e204] [cursor=pointer]:
+              - generic "How we make decisions together" [ref=e205]: How we make decisions togeth…
+            - button "Conversation options" [ref=e206] [cursor=pointer]:
+              - img [ref=e207]
+          - generic [ref=e211]:
+            - button "Decision-making friction in …" [ref=e212] [cursor=pointer]:
+              - generic "Decision-making friction in our relationship" [ref=e213]: Decision-making friction in …
+            - button "Conversation options" [ref=e214] [cursor=pointer]:
+              - img [ref=e215]
+          - generic [ref=e219]:
+            - 'button "QA: persistent input test" [ref=e220] [cursor=pointer]':
+              - 'generic "QA: persistent input test" [ref=e221]'
+            - button "Conversation options" [ref=e222] [cursor=pointer]:
+              - img [ref=e223]
+          - generic [ref=e227]:
+            - button "We keep arguing about the sa…" [ref=e228] [cursor=pointer]:
+              - generic "We keep arguing about the same things" [ref=e229]: We keep arguing about the sa…
+            - button "Conversation options" [ref=e230] [cursor=pointer]:
+              - img [ref=e231]
+      - button "Q QA Agent with Partner B" [ref=e236] [cursor=pointer]:
+        - generic [ref=e237]: Q
+        - generic [ref=e238]:
+          - generic [ref=e239]: QA Agent
+          - generic [ref=e240]: with Partner B
+        - img [ref=e241]
+    - generic [ref=e244]:
+      - generic [ref=e245]:
+        - button "Open menu" [ref=e246] [cursor=pointer]:
+          - img [ref=e247]
+        - link "Deeply" [ref=e249] [cursor=pointer]:
+          - /url: /dashboard
+          - img [ref=e250]
+          - generic [ref=e252]: Deeply
+      - link "Q" [ref=e253] [cursor=pointer]:
+        - /url: /settings
+        - generic [ref=e254]: Q
+    - main [ref=e255]:
+      - generic [ref=e256]:
+        - generic [ref=e257]:
+          - generic [ref=e258]:
+            - generic [ref=e259]:
+              - heading "My Issues" [level=1] [ref=e260]
+              - link "+ New conversation" [ref=e261] [cursor=pointer]:
+                - /url: /chat
+            - generic [ref=e262]:
+              - button "Sort issues" [expanded] [active] [ref=e263] [cursor=pointer]:
+                - img [ref=e264]
+                - generic [ref=e265]: Date created
+                - img [ref=e266]
+              - generic [ref=e269]:
+                - button "Urgency" [ref=e270] [cursor=pointer]
+                - button "Importance" [ref=e271] [cursor=pointer]
+                - button "Date created" [ref=e272] [cursor=pointer]:
+                  - text: Date created
+                  - img [ref=e273]
+          - generic [ref=e275]:
+            - button "Board" [ref=e276] [cursor=pointer]
+            - button "List" [ref=e277] [cursor=pointer]
+            - button "Matrix" [ref=e278] [cursor=pointer]
+        - generic [ref=e281]:
+          - generic [ref=e282]:
+            - generic [ref=e284]:
+              - generic [ref=e286]: New
+              - generic [ref=e287]: "18"
+            - generic [ref=e288]:
+              - generic [ref=e289] [cursor=pointer]:
+                - generic [ref=e290]:
+                  - generic [ref=e291]: Communication
+                  - generic [ref=e292]:
+                    - generic [ref=e293]: 🔒
+                    - text: Private
+                - paragraph [ref=e294]: QA Test Issue
+                - paragraph [ref=e295]: This issue was created by the QA seed script for automated testing.
+                - generic [ref=e296]:
+                  - generic [ref=e297]: Apr 27
+                  - button "Work through this" [ref=e298]
+              - generic [ref=e299] [cursor=pointer]:
+                - generic [ref=e301]:
+                  - generic [ref=e302]: 🔒
+                  - text: Private
+                - paragraph [ref=e303]: Fresh Issue No Nudge Test
+                - generic [ref=e304]: Haven’t touched this in 5 days
+                - generic [ref=e305]:
+                  - generic [ref=e306]: Apr 24
+                  - button "Work through this" [ref=e307]
+              - generic [ref=e308] [cursor=pointer]:
+                - generic [ref=e310]:
+                  - generic [ref=e311]: 🔒
+                  - text: Private
+                - paragraph [ref=e312]: Staleness Nudge Test Issue - Kanban
+                - generic [ref=e313]: Haven’t touched this in 17 days
+                - generic [ref=e314]:
+                  - generic [ref=e315]: Apr 24
+                  - button "Work through this" [ref=e316]
+              - generic [ref=e317] [cursor=pointer]:
+                - generic [ref=e319]:
+                  - generic [ref=e320]: 🔒
+                  - text: Private
+                - paragraph [ref=e321]: Fresh Proof Issue — just started
+                - generic [ref=e322]:
+                  - generic [ref=e323]: Apr 24
+                  - button "Work through this" [ref=e324]
+              - generic [ref=e325] [cursor=pointer]:
+                - generic [ref=e327]:
+                  - generic [ref=e328]: 🔒
+                  - text: Private
+                - paragraph [ref=e329]: QA Fresh Issue - No Staleness Nudge
+                - generic [ref=e330]:
+                  - generic [ref=e331]: Apr 24
+                  - button "Work through this" [ref=e332]
+              - generic [ref=e333] [cursor=pointer]:
+                - generic [ref=e335]:
+                  - generic [ref=e336]: 🔒
+                  - text: Private
+                - paragraph [ref=e337]: QA Fresh Issue - No Staleness Nudge
+                - generic [ref=e338]:
+                  - generic [ref=e339]: Apr 24
+                  - button "Work through this" [ref=e340]
+              - generic [ref=e341] [cursor=pointer]:
+                - generic [ref=e343]:
+                  - img [ref=e344]
+                  - text: Shared
+                - paragraph [ref=e347]: Future Goals — Joint (Viewer)
+                - generic [ref=e348]:
+                  - generic [ref=e349]: Apr 22
+                  - button "Work through this" [ref=e350]
+              - generic [ref=e351] [cursor=pointer]:
+                - generic [ref=e353]:
+                  - img [ref=e354]
+                  - text: Shared
+                - paragraph [ref=e357]: Conflict Resolution — Joint (Editor)
+                - paragraph [ref=e358]: "# Summary You've identified a conflict that needs resolving between both of you, and the next step is to add some details about what's happening so you can work through it together with clarity and care."
+                - generic [ref=e359]:
+                  - generic [ref=e360]: Apr 22
+                  - button "Work through this" [ref=e361]
+              - generic [ref=e362] [cursor=pointer]:
+                - generic [ref=e364]:
+                  - img [ref=e365]
+                  - text: Shared
+                - paragraph [ref=e368]: Decision Making — Shared (Editor)
+                - paragraph [ref=e369]: It sounds like you've identified that decision-making feels shared when you'd prefer clearer roles—the next step is to jot down a specific example of a decision that felt unclear, so you can explore together what "owned" decision-making would look like for you both.
+                - generic [ref=e370]:
+                  - generic [ref=e371]: Apr 22
+                  - button "Work through this" [ref=e372]
+              - generic [ref=e373] [cursor=pointer]:
+                - generic [ref=e375]:
+                  - img [ref=e376]
+                  - text: Shared
+                - paragraph [ref=e379]: Trust & Openness — Shared (Viewer)
+                - paragraph [ref=e380]: "# Summary You've identified trust and openness as something you'd like to work on together, and the next step is to have a gentle conversation where you both share what's on your minds—maybe starting with what \"trust and openness\" means to each of you and where you're feeling a gap."
+                - generic [ref=e381]:
+                  - generic [ref=e382]: Apr 22
+                  - button "Work through this" [ref=e383]
+              - generic [ref=e384] [cursor=pointer]:
+                - generic [ref=e386]:
+                  - generic [ref=e387]: 🔒
+                  - text: Private
+                - paragraph [ref=e388]: Communication Pattern — Private
+                - paragraph [ref=e389]: It sounds like you've identified that communication patterns might be affecting your relationship, and the next step would be to jot down some specific examples of what's been happening so you can clarify what you'd like to improve together.
+                - generic [ref=e390]:
+                  - generic [ref=e391]: Apr 22
+                  - button "Work through this" [ref=e392]
+              - generic [ref=e393] [cursor=pointer]:
+                - generic [ref=e395]:
+                  - img [ref=e396]
+                  - text: Shared
+                - paragraph [ref=e399]: Joint Issue - Viewer
+                - generic [ref=e400]:
+                  - generic [ref=e401]: Apr 22
+                  - button "Work through this" [ref=e402]
+              - generic [ref=e403] [cursor=pointer]:
+                - generic [ref=e405]:
+                  - img [ref=e406]
+                  - text: Shared
+                - paragraph [ref=e409]: Joint Issue - Editor
+                - paragraph [ref=e410]: "# Summary You and your partner have identified a concern about your editor, but haven't yet discussed the specifics together—a conversation to align on what's bothering you both would be a caring and practical first step."
+                - generic [ref=e411]:
+                  - generic [ref=e412]: Apr 22
+                  - button "Work through this" [ref=e413]
+              - generic [ref=e414] [cursor=pointer]:
+                - generic [ref=e416]:
+                  - img [ref=e417]
+                  - text: Shared
+                - paragraph [ref=e420]: Shared - Editor Role
+                - paragraph [ref=e421]: "# Summary You've identified a concern about shared editor access, but we need more details about what's happening—let's start by understanding whether this is about permissions not working as expected, unclear role boundaries, or something else entirely, so we can help you resolve it together."
+                - generic [ref=e422]:
+                  - generic [ref=e423]: Apr 22
+                  - button "Work through this" [ref=e424]
+              - generic [ref=e425] [cursor=pointer]:
+                - generic [ref=e427]:
+                  - img [ref=e428]
+                  - text: Shared
+                - paragraph [ref=e431]: Shared - Viewer Role
+                - paragraph [ref=e432]: It sounds like you're working through a permissions question about shared viewing access, and the next step would be to add some details about what you're trying to accomplish so we can help you find the best solution together.
+                - generic [ref=e433]:
+                  - generic [ref=e434]: Apr 22
+                  - button "Work through this" [ref=e435]
+              - generic [ref=e436] [cursor=pointer]:
+                - generic [ref=e438]:
+                  - generic [ref=e439]: 🔒
+                  - text: Private
+                - paragraph [ref=e440]: Private Test Issue - Lifecycle
+                - paragraph [ref=e441]: "# Summary You've just created this issue to test the lifecycle process, and the next step is to add details about what you'd like to track so we can move forward together!"
+                - generic [ref=e442]:
+                  - generic [ref=e443]: Apr 22
+                  - button "Work through this" [ref=e444]
+              - generic [ref=e445] [cursor=pointer]:
+                - generic [ref=e446]:
+                  - generic [ref=e447]: Communication
+                  - generic [ref=e448]:
+                    - img [ref=e449]
+                    - text: Shared
+                - paragraph [ref=e452]: We keep having the same argument
+                - generic [ref=e453]:
+                  - generic [ref=e454]: Apr 22
+                  - button "Work through this" [ref=e455]
+              - generic [ref=e456] [cursor=pointer]:
+                - generic [ref=e458]:
+                  - generic [ref=e459]: 🔒
+                  - text: Private
+                - paragraph [ref=e460]: Stale Proof Issue — 5 days untouched
+                - generic [ref=e461]: Haven’t touched this in 8 days
+                - generic [ref=e462]:
+                  - generic [ref=e463]: Apr 19
+                  - button "Work through this" [ref=e464]
+          - generic [ref=e465]:
+            - generic [ref=e467]:
+              - generic [ref=e469]: Working on it
+              - generic [ref=e470]: "7"
+            - generic [ref=e471]:
+              - generic [ref=e472] [cursor=pointer]:
+                - generic [ref=e474]:
+                  - generic [ref=e475]: 🔒
+                  - text: Private
+                - paragraph [ref=e476]: Staleness Nudge Test Issue - Resolving
+                - generic [ref=e477]: Haven’t touched this in 17 days
+                - generic [ref=e478]:
+                  - generic [ref=e479]: Updated Apr 10
+                  - button "Continue" [ref=e480]
+              - generic [ref=e481] [cursor=pointer]:
+                - generic [ref=e483]:
+                  - generic [ref=e484]: 🔒
+                  - text: Private
+                - paragraph [ref=e485]: QA Stale Issue - Staleness Nudge Test
+                - generic [ref=e486]:
+                  - generic [ref=e487]: Updated Apr 24
+                  - button "Continue" [ref=e488]
+              - generic [ref=e489] [cursor=pointer]:
+                - generic [ref=e491]:
+                  - generic [ref=e492]: 🔒
+                  - text: Private
+                - paragraph [ref=e493]: QA Stale Issue - Staleness Nudge Test
+                - generic [ref=e494]:
+                  - generic [ref=e495]: Updated Apr 24
+                  - button "Continue" [ref=e496]
+              - generic [ref=e497] [cursor=pointer]:
+                - generic [ref=e499]:
+                  - generic [ref=e500]: 🔒
+                  - text: Private
+                - paragraph [ref=e501]: QA Nav Fix Test Issue
+                - paragraph [ref=e502]: "# Summary This QA navigation fix is ready for you to add details that describe what needs testing — once you fill those in, the team can start working on it."
+                - generic [ref=e503]:
+                  - generic [ref=e504]: Updated Apr 24
+                  - button "Continue" [ref=e505]
+              - generic [ref=e506] [cursor=pointer]:
+                - generic [ref=e508]:
+                  - img [ref=e509]
+                  - text: Shared
+                - paragraph [ref=e512]: QA Partner Role Test Issue (Shared/Resolving)
+                - paragraph [ref=e513]: "# Summary It sounds like you're exploring a QA partner role and are just getting started—next, it would help to add some details about what you're testing or what specific partnership dynamic you'd like feedback on."
+                - generic [ref=e514]:
+                  - generic [ref=e515]: Updated Apr 24
+                  - button "Continue" [ref=e516]
+              - generic [ref=e517] [cursor=pointer]:
+                - generic [ref=e519]:
+                  - img [ref=e520]
+                  - text: Shared
+                - paragraph [ref=e523]: QA Scope Removal Test Issue
+                - paragraph [ref=e524]: "# Summary It looks like this issue needs some love—there are no details yet, so the next step is to add specifics about what QA scope is being removed and why, which will help clarify the path forward."
+                - generic [ref=e525]:
+                  - generic [ref=e526]: Updated Apr 24
+                  - button "Continue" [ref=e527]
+              - generic [ref=e528] [cursor=pointer]:
+                - generic [ref=e530]:
+                  - generic [ref=e531]: 🔒
+                  - text: Private
+                - paragraph [ref=e532]: QA Hydration Test Issue
+                - generic [ref=e533]:
+                  - generic [ref=e534]: Updated Apr 24
+                  - button "Continue" [ref=e535]
+          - generic [ref=e536]:
+            - generic [ref=e538]:
+              - generic [ref=e540]: Resolved
+              - generic [ref=e541]: "2"
+            - generic [ref=e542]:
+              - generic [ref=e543] [cursor=pointer]:
+                - generic [ref=e545]:
+                  - generic [ref=e546]: 🔒
+                  - text: Private
+                - paragraph [ref=e547]: Resolved Issue No Nudge Test
+                - generic [ref=e548]:
+                  - generic [ref=e549]: Resolved Apr 10
+                  - button "View" [ref=e550]
+              - generic [ref=e551] [cursor=pointer]:
+                - generic [ref=e553]:
+                  - img [ref=e554]
+                  - text: Shared
+                - paragraph [ref=e557]: QA Partner Role Test Issue (Shared/Resolved)
+                - generic [ref=e558]:
+                  - generic [ref=e559]: Resolved Apr 23
+                  - button "View" [ref=e560]
+  - alert [ref=e561]
+  - iframe [ref=e562]:
+    
+  - button "Open Intercom Messenger" [ref=e563] [cursor=pointer]:
+    - img [ref=e565]
+    - generic:
+      - img
+```
+
+# Test source
+
+```ts
+  1   | import { test, expect } from "@playwright/test";
+  2   | 
+  3   | test.describe("PR-408 Sort — Dropdown UX, Accessibility & ARIA", () => {
+  4   |   test.beforeEach(async ({ page }) => {
+  5   |     await page.goto("/issues");
+  6   |     await page.evaluate(() => localStorage.clear());
+  7   |     await page.reload();
+  8   |     await expect(page.getByRole("button", { name: "Sort issues" })).toBeVisible();
+  9   |   });
+  10  | 
+  11  |   // D.1 — Default sort is 'Date created' for a fresh session
+  12  |   test("D.1 Default sort is Date created for a fresh session (empty localStorage)", async ({ page }) => {
+  13  |     const sortBtn = page.getByRole("button", { name: "Sort issues" });
+  14  | 
+  15  |     // Label shows Date created by default
+  16  |     await expect(sortBtn).toContainText("Date created");
+  17  | 
+  18  |     // Open dropdown and verify Date created has checkmark, others do not
+  19  |     await sortBtn.click();
+  20  | 
+  21  |     const dateCreatedOption = page.getByRole("button", { name: "Date created" }).last();
+  22  |     await expect(dateCreatedOption.locator("img, svg")).toBeVisible();
+  23  | 
+  24  |     await expect(
+  25  |       page.getByRole("button", { name: "Urgency" }).locator("img, svg")
+  26  |     ).not.toBeAttached();
+  27  |     await expect(
+  28  |       page.getByRole("button", { name: "Importance" }).locator("img, svg")
+  29  |     ).not.toBeAttached();
+  30  | 
+  31  |     // Close dropdown
+  32  |     await page.keyboard.press("Escape");
+  33  |   });
+  34  | 
+  35  |   // D.2 — Clicking outside the dropdown closes it without changing sort
+  36  |   test("D.2 Clicking outside the dropdown closes it and preserves the current sort", async ({ page }) => {
+  37  |     const sortBtn = page.getByRole("button", { name: "Sort issues" });
+  38  | 
+  39  |     // Open dropdown
+  40  |     await sortBtn.click();
+  41  |     await expect(sortBtn).toHaveAttribute("aria-expanded", "true");
+  42  | 
+  43  |     // Click the fixed inset overlay to trigger click-outside close
+> 44  |     await page.locator("div.fixed.inset-0").click();
+      |                                             ^ Error: locator.click: Error: strict mode violation: locator('div.fixed.inset-0') resolved to 2 elements:
+  45  | 
+  46  |     // Dropdown should close
+  47  |     await expect(sortBtn).toHaveAttribute("aria-expanded", "false");
+  48  |     await expect(page.getByRole("button", { name: "Urgency" })).not.toBeVisible();
+  49  | 
+  50  |     // Label unchanged — still Date created
+  51  |     await expect(sortBtn).toContainText("Date created");
+  52  |   });
+  53  | 
+  54  |   // D.2 continued — clicking outside when Urgency is active preserves Urgency
+  55  |   test("D.2 Clicking outside preserves previously selected sort (Urgency)", async ({ page }) => {
+  56  |     const sortBtn = page.getByRole("button", { name: "Sort issues" });
+  57  | 
+  58  |     // Set sort to Urgency first
+  59  |     await sortBtn.click();
+  60  |     await page.getByRole("button", { name: "Urgency" }).click();
+  61  |     await expect(sortBtn).toContainText("Urgency");
+  62  | 
+  63  |     // Re-open dropdown
+  64  |     await sortBtn.click();
+  65  |     await expect(sortBtn).toHaveAttribute("aria-expanded", "true");
+  66  | 
+  67  |     // Click the fixed inset overlay to trigger click-outside close
+  68  |     await page.locator("div.fixed.inset-0").click();
+  69  | 
+  70  |     // Dropdown closes, sort still Urgency
+  71  |     await expect(sortBtn).toHaveAttribute("aria-expanded", "false");
+  72  |     await expect(sortBtn).toContainText("Urgency");
+  73  |   });
+  74  | 
+  75  |   // D.3 — Chevron rotates 180° when dropdown opens and back when closed
+  76  |   test("D.3 Chevron SVG rotates 180° on open and reverts on close", async ({ page }) => {
+  77  |     const sortBtn = page.getByRole("button", { name: "Sort issues" });
+  78  | 
+  79  |     // Before open: chevron should not have rotate(180deg)
+  80  |     // The chevron is the last img/svg inside the sort button
+  81  |     const chevron = sortBtn.locator("img, svg").last();
+  82  | 
+  83  |     const closedTransform = await chevron.evaluate((el) => {
+  84  |       return (el as HTMLElement).style.transform;
+  85  |     });
+  86  |     // Closed state: no transform or empty string
+  87  |     expect(closedTransform === "" || closedTransform === "none" || closedTransform === undefined).toBeTruthy();
+  88  | 
+  89  |     // Open dropdown
+  90  |     await sortBtn.click();
+  91  |     await expect(sortBtn).toHaveAttribute("aria-expanded", "true");
+  92  | 
+  93  |     const openTransform = await chevron.evaluate((el) => {
+  94  |       return (el as HTMLElement).style.transform;
+  95  |     });
+  96  |     expect(openTransform).toBe("rotate(180deg)");
+  97  | 
+  98  |     // Close by selecting an option
+  99  |     await page.getByRole("button", { name: "Urgency" }).click();
+  100 |     await expect(sortBtn).toHaveAttribute("aria-expanded", "false");
+  101 | 
+  102 |     const closedAgainTransform = await chevron.evaluate((el) => {
+  103 |       return (el as HTMLElement).style.transform;
+  104 |     });
+  105 |     expect(closedAgainTransform === "" || closedAgainTransform === "none" || closedAgainTransform === undefined).toBeTruthy();
+  106 |   });
+  107 | 
+  108 |   // H.1 — Accessibility: aria-label and aria-expanded
+  109 |   test("H.1 Sort button has correct aria-label='Sort issues' and aria-expanded tracks open state", async ({ page }) => {
+  110 |     const sortBtn = page.getByRole("button", { name: "Sort issues" });
+  111 | 
+  112 |     // Closed state
+  113 |     await expect(sortBtn).toHaveAttribute("aria-label", "Sort issues");
+  114 |     await expect(sortBtn).toHaveAttribute("aria-expanded", "false");
+  115 | 
+  116 |     // Open dropdown
+  117 |     await sortBtn.click();
+  118 |     await expect(sortBtn).toHaveAttribute("aria-expanded", "true");
+  119 | 
+  120 |     // Select an option to close
+  121 |     await page.getByRole("button", { name: "Urgency" }).click();
+  122 |     await expect(sortBtn).toHaveAttribute("aria-expanded", "false");
+  123 |   });
+  124 | 
+  125 |   // H.1 continued — all three dropdown option buttons are accessible by role
+  126 |   test("H.1 All sort option buttons are accessible by role and name when dropdown is open", async ({ page }) => {
+  127 |     const sortBtn = page.getByRole("button", { name: "Sort issues" });
+  128 |     await sortBtn.click();
+  129 | 
+  130 |     // All three options accessible by getByRole
+  131 |     await expect(page.getByRole("button", { name: "Urgency" })).toBeVisible();
+  132 |     await expect(page.getByRole("button", { name: "Importance" })).toBeVisible();
+  133 |     await expect(page.getByRole("button", { name: "Date created" }).last()).toBeVisible();
+  134 |   });
+  135 | });
+  136 | 
+```
