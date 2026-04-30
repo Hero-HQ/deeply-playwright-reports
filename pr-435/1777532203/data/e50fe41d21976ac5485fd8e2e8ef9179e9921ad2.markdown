@@ -1,0 +1,436 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: pr-435-issue-detail.spec.ts >> B — Issue Detail (Partner A): resolution proposal >> 2.5 submit resolution proposal — paused type
+- Location: tests/pr-435-issue-detail.spec.ts:123:7
+
+# Error details
+
+```
+TimeoutError: locator.click: Timeout 8000ms exceeded.
+Call log:
+  - waiting for getByRole('button', { name: /propose resolution|resolve/i }).first()
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e5]:
+        - link "Deeply" [ref=e6] [cursor=pointer]:
+          - /url: /dashboard
+          - img [ref=e7]
+          - generic [ref=e9]: Deeply
+        - button "Close sidebar" [ref=e10] [cursor=pointer]:
+          - img [ref=e11]
+      - navigation [ref=e13]:
+        - button "Home" [ref=e14] [cursor=pointer]:
+          - img [ref=e16]
+          - generic [ref=e19]: Home
+        - button "Issues" [ref=e20] [cursor=pointer]:
+          - img [ref=e22]
+          - generic [ref=e25]: Issues
+        - button "Commitments" [ref=e26] [cursor=pointer]:
+          - img [ref=e28]
+          - generic [ref=e31]: Commitments
+        - button "Chat" [ref=e32] [cursor=pointer]:
+          - img [ref=e34]
+          - generic [ref=e36]: Chat
+        - button "Reminders" [ref=e37] [cursor=pointer]:
+          - img [ref=e39]
+          - generic [ref=e42]: Reminders
+        - button "Profile" [ref=e43] [cursor=pointer]:
+          - img [ref=e45]
+          - generic [ref=e48]: Profile
+        - generic [ref=e49]:
+          - generic [ref=e50]: Recents
+          - generic [ref=e51]:
+            - button "Untitled" [ref=e52] [cursor=pointer]:
+              - generic "Untitled" [ref=e53]
+            - button "Conversation options" [ref=e54] [cursor=pointer]:
+              - img [ref=e55]
+          - generic [ref=e59]:
+            - button "Untitled" [ref=e60] [cursor=pointer]:
+              - generic "Untitled" [ref=e61]
+            - button "Conversation options" [ref=e62] [cursor=pointer]:
+              - img [ref=e63]
+          - generic [ref=e67]:
+            - button "Untitled" [ref=e68] [cursor=pointer]:
+              - generic "Untitled" [ref=e69]
+            - button "Conversation options" [ref=e70] [cursor=pointer]:
+              - img [ref=e71]
+          - generic [ref=e75]:
+            - button "Untitled" [ref=e76] [cursor=pointer]:
+              - generic "Untitled" [ref=e77]
+            - button "Conversation options" [ref=e78] [cursor=pointer]:
+              - img [ref=e79]
+          - generic [ref=e83]:
+            - button "Untitled" [ref=e84] [cursor=pointer]:
+              - generic "Untitled" [ref=e85]
+            - button "Conversation options" [ref=e86] [cursor=pointer]:
+              - img [ref=e87]
+          - generic [ref=e91]:
+            - button "Untitled" [ref=e92] [cursor=pointer]:
+              - generic "Untitled" [ref=e93]
+            - button "Conversation options" [ref=e94] [cursor=pointer]:
+              - img [ref=e95]
+          - generic [ref=e99]:
+            - button "Untitled" [ref=e100] [cursor=pointer]:
+              - generic "Untitled" [ref=e101]
+            - button "Conversation options" [ref=e102] [cursor=pointer]:
+              - img [ref=e103]
+          - generic [ref=e107]:
+            - button "Untitled" [ref=e108] [cursor=pointer]:
+              - generic "Untitled" [ref=e109]
+            - button "Conversation options" [ref=e110] [cursor=pointer]:
+              - img [ref=e111]
+          - generic [ref=e115]:
+            - button "Untitled" [ref=e116] [cursor=pointer]:
+              - generic "Untitled" [ref=e117]
+            - button "Conversation options" [ref=e118] [cursor=pointer]:
+              - img [ref=e119]
+          - generic [ref=e123]:
+            - button "Untitled" [ref=e124] [cursor=pointer]:
+              - generic "Untitled" [ref=e125]
+            - button "Conversation options" [ref=e126] [cursor=pointer]:
+              - img [ref=e127]
+          - generic [ref=e131]:
+            - button "Untitled" [ref=e132] [cursor=pointer]:
+              - generic "Untitled" [ref=e133]
+            - button "Conversation options" [ref=e134] [cursor=pointer]:
+              - img [ref=e135]
+          - generic [ref=e139]:
+            - button "Untitled" [ref=e140] [cursor=pointer]:
+              - generic "Untitled" [ref=e141]
+            - button "Conversation options" [ref=e142] [cursor=pointer]:
+              - img [ref=e143]
+          - generic [ref=e147]:
+            - button "Untitled" [ref=e148] [cursor=pointer]:
+              - generic "Untitled" [ref=e149]
+            - button "Conversation options" [ref=e150] [cursor=pointer]:
+              - img [ref=e151]
+          - generic [ref=e155]:
+            - button "Untitled" [ref=e156] [cursor=pointer]:
+              - generic "Untitled" [ref=e157]
+            - button "Conversation options" [ref=e158] [cursor=pointer]:
+              - img [ref=e159]
+          - generic [ref=e163]:
+            - button "Untitled" [ref=e164] [cursor=pointer]:
+              - generic "Untitled" [ref=e165]
+            - button "Conversation options" [ref=e166] [cursor=pointer]:
+              - img [ref=e167]
+          - generic [ref=e171]:
+            - button "Untitled" [ref=e172] [cursor=pointer]:
+              - generic "Untitled" [ref=e173]
+            - button "Conversation options" [ref=e174] [cursor=pointer]:
+              - img [ref=e175]
+          - generic [ref=e179]:
+            - button "Decision-making friction in …" [ref=e180] [cursor=pointer]:
+              - generic "Decision-making friction in our relationship" [ref=e181]: Decision-making friction in …
+            - button "Conversation options" [ref=e182] [cursor=pointer]:
+              - img [ref=e183]
+          - generic [ref=e187]:
+            - button "Untitled" [ref=e188] [cursor=pointer]:
+              - generic "Untitled" [ref=e189]
+            - button "Conversation options" [ref=e190] [cursor=pointer]:
+              - img [ref=e191]
+          - generic [ref=e195]:
+            - button "Untitled" [ref=e196] [cursor=pointer]:
+              - generic "Untitled" [ref=e197]
+            - button "Conversation options" [ref=e198] [cursor=pointer]:
+              - img [ref=e199]
+          - generic [ref=e203]:
+            - button "Untitled" [ref=e204] [cursor=pointer]:
+              - generic "Untitled" [ref=e205]
+            - button "Conversation options" [ref=e206] [cursor=pointer]:
+              - img [ref=e207]
+          - generic [ref=e211]:
+            - button "Untitled" [ref=e212] [cursor=pointer]:
+              - generic "Untitled" [ref=e213]
+            - button "Conversation options" [ref=e214] [cursor=pointer]:
+              - img [ref=e215]
+          - generic [ref=e219]:
+            - button "How we make decisions togeth…" [ref=e220] [cursor=pointer]:
+              - generic "How we make decisions together" [ref=e221]: How we make decisions togeth…
+            - button "Conversation options" [ref=e222] [cursor=pointer]:
+              - img [ref=e223]
+          - generic [ref=e227]:
+            - button "Decision-making friction in …" [ref=e228] [cursor=pointer]:
+              - generic "Decision-making friction in our relationship" [ref=e229]: Decision-making friction in …
+            - button "Conversation options" [ref=e230] [cursor=pointer]:
+              - img [ref=e231]
+          - generic [ref=e235]:
+            - 'button "QA: persistent input test" [ref=e236] [cursor=pointer]':
+              - 'generic "QA: persistent input test" [ref=e237]'
+            - button "Conversation options" [ref=e238] [cursor=pointer]:
+              - img [ref=e239]
+          - button "Show more" [ref=e243] [cursor=pointer]
+      - button "Q QA Agent with Partner B" [ref=e245] [cursor=pointer]:
+        - generic [ref=e246]: Q
+        - generic [ref=e247]:
+          - generic [ref=e248]: QA Agent
+          - generic [ref=e249]: with Partner B
+        - img [ref=e250]
+    - generic [ref=e253]:
+      - generic [ref=e254]:
+        - button "Open menu" [ref=e255] [cursor=pointer]:
+          - img [ref=e256]
+        - link "Deeply" [ref=e258] [cursor=pointer]:
+          - /url: /dashboard
+          - img [ref=e259]
+          - generic [ref=e261]: Deeply
+      - link "Q" [ref=e262] [cursor=pointer]:
+        - /url: /settings
+        - generic [ref=e263]: Q
+    - main [ref=e264]:
+      - generic [ref=e266]:
+        - link "Issues" [ref=e267] [cursor=pointer]:
+          - /url: /issues
+          - img [ref=e268]
+          - text: Issues
+        - generic [ref=e270]:
+          - heading "QA Test Issue" [level=1] [ref=e272]
+          - button "More actions" [ref=e274] [cursor=pointer]:
+            - img [ref=e275]
+        - generic [ref=e279]:
+          - generic [ref=e280]: Open
+          - generic [ref=e282]:
+            - generic [ref=e283]: 🔒
+            - text: Private
+        - generic [ref=e284]:
+          - paragraph [ref=e285]: What to do next
+          - paragraph [ref=e286]: This is a test issue created by your QA automation script, and the next step would be to verify that your testing framework is working correctly by running a validation check on the seed data.
+          - button "Continue in Chat" [ref=e288] [cursor=pointer]
+        - paragraph [ref=e294]: This issue was created by the QA seed script for automated testing.
+        - generic [ref=e295]:
+          - generic [ref=e296]:
+            - generic [ref=e297]:
+              - strong [ref=e298]: Ready to bring Partner B in?
+              - text: Partner B’ll see this translated Issue plus any personal note you add. Your raw chat and side-notes stay private.
+            - button "Share with Partner B ›" [ref=e299] [cursor=pointer]
+          - generic [ref=e300]:
+            - img [ref=e301]
+            - text: Your partner will see this issue and be invited to add their perspective
+  - alert [ref=e304]
+  - iframe [ref=e305]:
+    
+  - button "Open Intercom Messenger" [ref=e306] [cursor=pointer]:
+    - img [ref=e308]
+    - generic:
+      - img
+```
+
+# Test source
+
+```ts
+  35  |     });
+  36  |     const page = await ctx.newPage();
+  37  |     await page.goto(ISSUE_ROUTE);
+  38  |     await expect(page).toHaveURL(/login/i);
+  39  |     await ctx.close();
+  40  |   });
+  41  | 
+  42  |   // ─── 2.2 Propose Resolution button visible ────────────────────────────────
+  43  | 
+  44  |   test("2.2 Propose Resolution button is visible for open issue (partner A = editor)", async ({
+  45  |     page,
+  46  |   }) => {
+  47  |     const proposeBtn = page
+  48  |       .getByRole("button", { name: /propose resolution|resolve/i })
+  49  |       .or(page.getByText(/propose resolution|resolve issue/i).first());
+  50  |     await expect(proposeBtn.first()).toBeVisible();
+  51  |   });
+  52  | 
+  53  |   // ─── 2.3 Resolution type options appear after clicking ────────────────────
+  54  | 
+  55  |   test("2.3 clicking Propose Resolution reveals four resolution type options", async ({
+  56  |     page,
+  57  |   }) => {
+  58  |     const proposeBtn = page
+  59  |       .getByRole("button", { name: /propose resolution|resolve/i })
+  60  |       .first();
+  61  |     await proposeBtn.click();
+  62  | 
+  63  |     // Four resolution types should appear
+  64  |     await expect(
+  65  |       page.getByText(/resolved/i).or(page.getByRole("radio", { name: /resolved/i }))
+  66  |     ).toBeVisible();
+  67  |     await expect(
+  68  |       page.getByText(/improved/i).or(page.getByRole("radio", { name: /improved/i }))
+  69  |     ).toBeVisible();
+  70  |     await expect(
+  71  |       page.getByText(/paused/i).or(page.getByRole("radio", { name: /paused/i }))
+  72  |     ).toBeVisible();
+  73  |     await expect(
+  74  |       page.getByText(/reframed/i).or(page.getByRole("radio", { name: /reframed/i }))
+  75  |     ).toBeVisible();
+  76  |   });
+  77  | 
+  78  |   // ─── 2.4 Submit — resolved type ──────────────────────────────────────────
+  79  | 
+  80  |   test("2.4 submit resolution proposal — resolved type → issue enters resolving state", async ({
+  81  |     page,
+  82  |   }) => {
+  83  |     // Mock the resolve endpoint so state does not actually persist
+  84  |     await page.route(`**/api/issues/${ISSUE_ID}/resolve`, async (route) => {
+  85  |       await route.fulfill({
+  86  |         status: 200,
+  87  |         contentType: "application/json",
+  88  |         body: JSON.stringify({ status: "resolving", resolution_type: "resolved" }),
+  89  |       });
+  90  |     });
+  91  | 
+  92  |     const proposeBtn = page
+  93  |       .getByRole("button", { name: /propose resolution|resolve/i })
+  94  |       .first();
+  95  |     await proposeBtn.click();
+  96  | 
+  97  |     // Select "Resolved" type
+  98  |     const resolvedOption = page
+  99  |       .getByRole("button", { name: /^resolved$/i })
+  100 |       .or(page.getByRole("radio", { name: /^resolved$/i }))
+  101 |       .or(page.getByText(/^resolved$/i))
+  102 |       .first();
+  103 |     await resolvedOption.click();
+  104 | 
+  105 |     // Submit
+  106 |     const submitBtn = page
+  107 |       .getByRole("button", { name: /submit|propose|confirm|send/i })
+  108 |       .last();
+  109 |     await submitBtn.click();
+  110 | 
+  111 |     // After submit: expect a success indicator or status change
+  112 |     await expect(
+  113 |       page
+  114 |         .getByText(/resolving|pending confirmation|waiting/i)
+  115 |         .or(page.getByText(/proposal sent|submitted/i))
+  116 |     ).toBeVisible({ timeout: 8000 });
+  117 | 
+  118 |     await page.unroute(`**/api/issues/${ISSUE_ID}/resolve`);
+  119 |   });
+  120 | 
+  121 |   // ─── 2.5 Submit — paused type ────────────────────────────────────────────
+  122 | 
+  123 |   test("2.5 submit resolution proposal — paused type", async ({ page }) => {
+  124 |     await page.route(`**/api/issues/${ISSUE_ID}/resolve`, async (route) => {
+  125 |       await route.fulfill({
+  126 |         status: 200,
+  127 |         contentType: "application/json",
+  128 |         body: JSON.stringify({ status: "resolving", resolution_type: "paused" }),
+  129 |       });
+  130 |     });
+  131 | 
+  132 |     const proposeBtn = page
+  133 |       .getByRole("button", { name: /propose resolution|resolve/i })
+  134 |       .first();
+> 135 |     await proposeBtn.click();
+      |                      ^ TimeoutError: locator.click: Timeout 8000ms exceeded.
+  136 | 
+  137 |     const pausedOption = page
+  138 |       .getByRole("button", { name: /^paused$/i })
+  139 |       .or(page.getByRole("radio", { name: /^paused$/i }))
+  140 |       .or(page.getByText(/^paused$/i))
+  141 |       .first();
+  142 |     await pausedOption.click();
+  143 | 
+  144 |     const submitBtn = page
+  145 |       .getByRole("button", { name: /submit|propose|confirm|send/i })
+  146 |       .last();
+  147 |     await submitBtn.click();
+  148 | 
+  149 |     await expect(
+  150 |       page
+  151 |         .getByText(/resolving|pending|waiting|paused/i)
+  152 |         .or(page.getByText(/proposal sent|submitted/i))
+  153 |     ).toBeVisible({ timeout: 8000 });
+  154 | 
+  155 |     await page.unroute(`**/api/issues/${ISSUE_ID}/resolve`);
+  156 |   });
+  157 | 
+  158 |   // ─── 2.6 Submit — improved type ──────────────────────────────────────────
+  159 | 
+  160 |   test("2.6 submit resolution proposal — improved type", async ({ page }) => {
+  161 |     await page.route(`**/api/issues/${ISSUE_ID}/resolve`, async (route) => {
+  162 |       await route.fulfill({
+  163 |         status: 200,
+  164 |         contentType: "application/json",
+  165 |         body: JSON.stringify({ status: "resolving", resolution_type: "improved" }),
+  166 |       });
+  167 |     });
+  168 | 
+  169 |     const proposeBtn = page
+  170 |       .getByRole("button", { name: /propose resolution|resolve/i })
+  171 |       .first();
+  172 |     await proposeBtn.click();
+  173 | 
+  174 |     const improvedOption = page
+  175 |       .getByRole("button", { name: /^improved$/i })
+  176 |       .or(page.getByRole("radio", { name: /^improved$/i }))
+  177 |       .or(page.getByText(/^improved$/i))
+  178 |       .first();
+  179 |     await improvedOption.click();
+  180 | 
+  181 |     const submitBtn = page
+  182 |       .getByRole("button", { name: /submit|propose|confirm|send/i })
+  183 |       .last();
+  184 |     await submitBtn.click();
+  185 | 
+  186 |     await expect(
+  187 |       page
+  188 |         .getByText(/resolving|improved|pending/i)
+  189 |         .or(page.getByText(/proposal sent|submitted/i))
+  190 |     ).toBeVisible({ timeout: 8000 });
+  191 | 
+  192 |     await page.unroute(`**/api/issues/${ISSUE_ID}/resolve`);
+  193 |   });
+  194 | 
+  195 |   // ─── 2.7 Submit — reframed type (ReframeIssueLink visible) ───────────────
+  196 | 
+  197 |   test("2.7 submit resolution proposal — reframed type shows ReframeIssueLink", async ({
+  198 |     page,
+  199 |   }) => {
+  200 |     await page.route(`**/api/issues/${ISSUE_ID}/resolve`, async (route) => {
+  201 |       await route.fulfill({
+  202 |         status: 200,
+  203 |         contentType: "application/json",
+  204 |         body: JSON.stringify({ status: "resolving", resolution_type: "reframed" }),
+  205 |       });
+  206 |     });
+  207 | 
+  208 |     const proposeBtn = page
+  209 |       .getByRole("button", { name: /propose resolution|resolve/i })
+  210 |       .first();
+  211 |     await proposeBtn.click();
+  212 | 
+  213 |     const reframedOption = page
+  214 |       .getByRole("button", { name: /^reframed$/i })
+  215 |       .or(page.getByRole("radio", { name: /^reframed$/i }))
+  216 |       .or(page.getByText(/^reframed$/i))
+  217 |       .first();
+  218 |     await reframedOption.click();
+  219 | 
+  220 |     const submitBtn = page
+  221 |       .getByRole("button", { name: /submit|propose|confirm|send/i })
+  222 |       .last();
+  223 |     await submitBtn.click();
+  224 | 
+  225 |     // After submit: reframe link/component should appear
+  226 |     await expect(
+  227 |       page
+  228 |         .getByText(/reframe|reframed/i)
+  229 |         .or(page.getByRole("link", { name: /reframe/i }))
+  230 |     ).toBeVisible({ timeout: 8000 });
+  231 | 
+  232 |     await page.unroute(`**/api/issues/${ISSUE_ID}/resolve`);
+  233 |   });
+  234 | 
+  235 |   // ─── API error handling ───────────────────────────────────────────────────
+```

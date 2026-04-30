@@ -1,0 +1,178 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: pr-435-resolution-confirm.spec.ts >> C — Resolution Confirmation (Partner B POV) >> 3.x API 500 on confirm → shows error, no white screen
+- Location: tests/pr-435-resolution-confirm.spec.ts:149:7
+
+# Error details
+
+```
+TimeoutError: locator.click: Timeout 8000ms exceeded.
+Call log:
+  - waiting for getByRole('button', { name: /confirm|approve/i }).first()
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - alert [ref=e2]
+  - generic [ref=e3]:
+    - img
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - img [ref=e7]
+          - generic [ref=e9]: Deeply
+        - heading "Welcome to Deeply" [level=1] [ref=e10]
+        - paragraph [ref=e11]: Sign in to continue your relationship health journey
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - generic [ref=e15]: Email address
+          - textbox "Email address" [ref=e16]:
+            - /placeholder: you@example.com
+        - button "Continue with Email" [ref=e17] [cursor=pointer]
+        - paragraph [ref=e18]: No password needed. We'll send you a secure link to sign in.
+  - iframe [ref=e19]:
+    
+  - generic:
+    - generic:
+      - iframe [ref=e21]:
+        - generic [active] [ref=f5e1]:
+          - generic "Intercom":
+            - region "Intercom messenger":
+              - button "Open Intercom Messenger" [ref=f5e2] [cursor=pointer]:
+                - img [ref=f5e4]
+                - img [ref=f5e7]
+      - iframe [ref=e22]:
+        - generic [active] [ref=f6e1]:
+          - generic "Intercom":
+            - region "Intercom messenger":
+              - button "Open Intercom Messenger" [ref=f6e2] [cursor=pointer]:
+                - generic [ref=f6e4]:
+                  - generic [ref=f6e5]: Need help?
+                  - generic [ref=f6e6]: The team will reply as soon as they can
+```
+
+# Test source
+
+```ts
+  63  |       .or(page.getByRole("button", { name: /confirm|approve/i }))
+  64  |       .first();
+  65  |     await expect(confirmCard).toBeVisible();
+  66  | 
+  67  |     // At minimum both confirm and deny/reject buttons should exist
+  68  |     const confirmBtn = page.getByRole("button", { name: /confirm|approve/i });
+  69  |     const denyBtn = page.getByRole("button", {
+  70  |       name: /deny|reject|decline|reopen/i,
+  71  |     });
+  72  |     await expect(confirmBtn.first()).toBeVisible();
+  73  |     await expect(denyBtn.first()).toBeVisible();
+  74  |   });
+  75  | 
+  76  |   // ─── 3.2 Partner B confirms resolution ───────────────────────────────────
+  77  | 
+  78  |   test("3.2 partner B confirms resolution → issue changes to resolved", async ({
+  79  |     page,
+  80  |   }) => {
+  81  |     // Mock the confirm POST
+  82  |     await page.route(`**/api/issues/${ISSUE_ID}/resolve`, async (route) => {
+  83  |       if (route.request().method() === "POST") {
+  84  |         await route.fulfill({
+  85  |           status: 200,
+  86  |           contentType: "application/json",
+  87  |           body: JSON.stringify({ status: "resolved", resolution_type: "resolved" }),
+  88  |         });
+  89  |       } else {
+  90  |         await route.continue();
+  91  |       }
+  92  |     });
+  93  | 
+  94  |     const confirmBtn = page
+  95  |       .getByRole("button", { name: /confirm|approve/i })
+  96  |       .first();
+  97  |     await confirmBtn.click();
+  98  | 
+  99  |     // Expect resolved state to be shown
+  100 |     await expect(
+  101 |       page
+  102 |         .getByText(/resolved/i)
+  103 |         .or(page.getByText(/issue is resolved|successfully resolved/i))
+  104 |     ).toBeVisible({ timeout: 8000 });
+  105 | 
+  106 |     await page.unroute(`**/api/issues/${ISSUE_ID}/resolve`);
+  107 |   });
+  108 | 
+  109 |   // ─── 3.3 Partner B rejects / denies resolution ───────────────────────────
+  110 | 
+  111 |   test("3.3 partner B denies resolution → issue reverts to open", async ({
+  112 |     page,
+  113 |   }) => {
+  114 |     // Mock the deny/reopen POST — could be PATCH status=open or a dedicated endpoint
+  115 |     await page.route(`**/api/issues/${ISSUE_ID}**`, async (route) => {
+  116 |       const method = route.request().method();
+  117 |       const url = route.request().url();
+  118 |       if (
+  119 |         (method === "POST" || method === "PATCH") &&
+  120 |         (url.includes("reopen") || url.includes("resolve") || url === `${route.request().url()}`)
+  121 |       ) {
+  122 |         await route.fulfill({
+  123 |           status: 200,
+  124 |           contentType: "application/json",
+  125 |           body: JSON.stringify({ status: "open" }),
+  126 |         });
+  127 |       } else {
+  128 |         await route.continue();
+  129 |       }
+  130 |     });
+  131 | 
+  132 |     const denyBtn = page
+  133 |       .getByRole("button", { name: /deny|reject|decline|reopen/i })
+  134 |       .first();
+  135 |     await denyBtn.click();
+  136 | 
+  137 |     // After denial: page should show open/reverted state or confirmation of denial
+  138 |     await expect(
+  139 |       page
+  140 |         .getByText(/open|reverted|rejected|denied/i)
+  141 |         .or(page.getByText(/proposal rejected|back to open/i))
+  142 |     ).toBeVisible({ timeout: 8000 });
+  143 | 
+  144 |     await page.unroute(`**/api/issues/${ISSUE_ID}**`);
+  145 |   });
+  146 | 
+  147 |   // ─── Edge: API failure on confirm ─────────────────────────────────────────
+  148 | 
+  149 |   test("3.x API 500 on confirm → shows error, no white screen", async ({
+  150 |     page,
+  151 |   }) => {
+  152 |     await page.route(`**/api/issues/${ISSUE_ID}/resolve`, async (route) => {
+  153 |       await route.fulfill({
+  154 |         status: 500,
+  155 |         contentType: "application/json",
+  156 |         body: JSON.stringify({ error: "server error" }),
+  157 |       });
+  158 |     });
+  159 | 
+  160 |     const confirmBtn = page
+  161 |       .getByRole("button", { name: /confirm|approve/i })
+  162 |       .first();
+> 163 |     await confirmBtn.click();
+      |                      ^ TimeoutError: locator.click: Timeout 8000ms exceeded.
+  164 | 
+  165 |     // Must not white-screen
+  166 |     await expect(page.locator("body")).toBeVisible();
+  167 |     const bodyText = await page.locator("body").textContent();
+  168 |     expect(bodyText?.trim().length).toBeGreaterThan(0);
+  169 | 
+  170 |     await page.unroute(`**/api/issues/${ISSUE_ID}/resolve`);
+  171 |   });
+  172 | });
+  173 | 
+```
